@@ -1,0 +1,114 @@
+container{
+  font-family: 'Podkova', serif;
+}
+
+img{
+  max-width: 100%;
+}
+
+header h1{
+  font-family: 'Podkova', serif;
+  padding-top: 2rem;
+}
+
+nav ul {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav a {
+    padding: 1.25rem 0.5rem;
+    font-size: 1.6rem;
+    max-width: 140px;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    color: darkslategray;
+}
+
+.item-container {
+  font-family: 'Podkova', serif;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:flex-start;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+  
+}
+
+header img{
+  float: left;
+}
+
+.item{
+  max-width: 30%;
+  padding: 3%;
+  
+}
+
+form{
+  padding-top: 1rem;
+  
+}
+
+@media only screen and (max-width: 700px) {
+  .item{
+    max-width: 48%;
+    padding: 4%;
+  }
+}
+
+@media only screen and (max-width: 526px) {
+  .item{
+    max-width: 97%;
+    padding: 2%;
+    margin: 1%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    min-height: 24em;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border: darkslategray;
+    border-style: solid;
+    border-width: thin;
+  }
+}
+
+@media only screen and (max-width: 346px){
+  header img{
+    display: none;
+  }
+  
+  header h1{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  nav-pills li{
+    width: 100%;
+  }
+}
+
+a{
+  color: darkslategray;
+}
+
+ul.nav.nav-pills li.active a{
+  background-color: darkslategray;
+}

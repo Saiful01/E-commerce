@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Winter Scarves</title>
+
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <script src="https://use.fontawesome.com/eb1b310649.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  
+  <link href="https://fonts.googleapis.com/css?family=Podkova" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class ="container">
+  <header>
+    <img src ="images/logo-scarfcat-100px.png" alt = "a cartoon cat in a scarf">
+    <h1><a href="#">Winter Wear Warehouse</a></h1>
+      <nav>
+        <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Scarves</a></li>
+        <li role="presentation"><a href="#">Hats</a></li>
+        <li role="presentation"><a href="#">Gloves</a></li>
+        <li role="presentation" id="cart-info">
+          <a href="#">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+            <strong id="item-total"></strong>
+          </a>
+        </li>
+        </ul>
+      </nav>
+  </header>
+
+  <div class="col-md-2">
+    <form name= "filterBy" onsubmit="filterItems();">
+      <label>Filter By:
+        <select name="filter">
+          <option value="">Choose One</option>
+          <option value="price">Price</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+
+      <input type="submit" value="Sort">
+    </form>
+    
+     
+  </div>
+
+  <div class="col-md-10">
+    
+    <div class="item-container">
+      <div class="item">
+        <h3>Reversible Plaid</h3>
+        <img srcset ="images/reversible-plaid-400px.jpg 400w, images/reversible-plaid-200px.jpg 200w" 
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a red plaid reversible scarf"
+             >
+        <p>Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.</p>
+        <p>$26.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Reversible Plaid')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Reversible Plaid')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Wool Cable Knit</h3>
+        <img srcset ="images/wool-cable-400px.jpg 400w, images/wool-cable-200px.jpg 200w"
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a warm wool cable knit scarf">
+        <p>Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported.</p>
+        <p>$49.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Wool Cable Knit')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Wool Cable Knit')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Northern Lights</h3>
+        <img srcset = "images/northern-lights-200px.jpg 200w, images/northern-lights-400px.jpg 400w" 
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a colorful rainbow scarf made from thin material">
+        <p>Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton.</p>
+        <p>$29.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Northern Lights')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Northern Lights')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Ombre Infinity</h3>
+        <img srcset ="images/ombre-infinity-200px.jpg 200w, images/ombre-infinity-400px.jpg 400w"
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a circle scarf in with dual sided tan and brown colorways">
+        <p>A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic.</p>
+        <p>$11.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Ombre Infinity')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Ombre Infinity')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Fringed Plaid</h3>
+        <img srcset ="images/fringed-plaid-200px.jpg 200w, images/fringed-plaid-400px.jpg 400w" 
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a plaid scarf in black white and grey with fringed edges">
+        <p>Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic.</p>
+        <p>$18.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Fringed Plaid')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Fringed Plaid')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Multi Color</h3>
+        <img srcset ="images/multi-color-200px.jpg 200w, images/multi-color-400px.jpg 400w" 
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a multicolor scarf with orange, yellow, brown, and tan paneling">
+        <p>The Who What Wear Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent, so you can adjust to contrast or match your outfit; soft and lush, it’s your stylish standoff against cold AC and unexpected fall breezes. 100% acrylic</p>
+        <p>$22.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Multi Color')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Multi Color')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Etro Paisley-Print Silk</h3>
+        <img srcset ="images/etro-400px.png 400w, images/etro-200px.png 200w"
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a blue paisley patterned silk scarf">
+        <p>Luxurious silk scarf with subtle paisley pattern. 100% silk</p>
+        <p>$249.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Etro Paisley-Print Silk')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Etro Paisley-Print Silk')">-</button>
+        </div>
+      </div>
+      
+      <div class="item">
+        <h3>Ashby Twill</h3>
+        <img srcset ="images/twill-200px.jpg 200w, images/twill-400px.jpg 400w" 
+             sizes="(max-width: 800px) 200px, (min-width: 801px) 400px"
+             alt ="a twill scarf in tan with gray fringe">
+        <p>Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool</p>
+        <p>$70.99</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="addToCart" onclick="addItem('Ashby Twill')">+</button>
+          <button type="button" class="removeFromCart" onclick="removeItem('Ashby Twill')">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

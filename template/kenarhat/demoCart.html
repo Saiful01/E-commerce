@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="css/custom.css">
+<style>
+    body {
+        background: #F2F3F7;
+    }
+
+    #ex3 .fa-stack[data-count]:after {
+        position: absolute;
+        right: 0%;
+        top: 1%;
+        content: attr(data-count);
+        font-size: 30%;
+        padding: .6em;
+        border-radius: 50%;
+        line-height: .8em;
+        color: white;
+        background: rgba(255, 0, 0, .85);
+        text-align: center;
+        min-width: 1em;
+        font-weight: bold;
+    }
+
+    .bottom-right {
+        background: #ffffff;
+        border-radius: 2px;
+        z-index: 1;
+        position: fixed;
+        right: 0px;
+        bottom: 40%;
+        height: 90px;
+        width: 90px;
+    }
+
+    .full-cart {
+        border-radius: 2px;
+        z-index: 1;
+        position: fixed;
+        right: 0px;
+        height: 100%;
+        width: 400px;
+        padding: 10px;
+        opacity: 1.8;
+        top: 0;
+    }
+
+    .item-list {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .bottom-right .fa {
+        font-size: 64px;
+        color: #5A5A5A;
+        padding: 13px;
+    }
+</style>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+
+    <div id="ex3">
+  <span class="p1 fa-stack fa-5x has-badge" data-count="3">
+    <i class="p2 fa fa-circle fa-stack-2x"></i>
+    <i class="p3 fa fa-shopping-cart fa-stack-1x fa-inverse" data-count="5"></i>
+  </span>
+    </div>
+
+    <button ng-click="addToCart()">AddToCard</button>
+
+
+    <div class="bottom-right" ng-if="cartActive" ng-click="showPopover()">
+        <a href="#">
+            <i class="fa fa-shopping-bag"></i>
+        </a>
+    </div>
+
+
+    <div class="" ng-show="popoverIsVisible">
+        <div class="card full-cart">
+            <div class="card-header">Items</div>
+            <div class="card-body item-list">
+                <span ng-repeat="x in itemList">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="img/product/4.jpg" width="100%"/>
+                        </div>
+                        <div class="col-5">
+                                {{x.name}}--{{x.price}}
+                        </div>
+                        <div class="col-2"> 540$</div>
+                        <div class="col-2">
+                            <a href="#"><i class="fa fa-trash" ng-click="removeItem()"></i></a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="card-footer" ng-click="hidePopover()"><a href="#"> Close</a></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+
+        $scope.cartActive = false;
+        $scope.cartCount = 0;
+        $scope.itemList = [];
+        $scope.addToCart = function () {
+            $scope.cartCount++;
+            $scope.cartActive = true;
+            $scope.itemList.push({
+                "id": $scope.cartCount,
+                "name": "Item " + $scope.cartCount,
+                "price": "Price 10" + $scope.cartCount
+            });
+        }
+
+        $scope.showPopover = function () {
+            $scope.popoverIsVisible = true;
+        };
+
+        $scope.hidePopover = function () {
+            $scope.popoverIsVisible = false;
+        };
+
+        $scope.removeItem = function (item) {
+            var index = $scope.itemList.indexOf(item);
+            $scope.itemList.splice(index, 1);
+        };
+
+
+    });
+
+</script>
+
+
+</body>
+</html>
